@@ -1,29 +1,28 @@
-import cmath
-import math
-
-def floor(num):
-    if num >= 0:
-        return int(num)
-    if num == int(num):
-        return int(num)
-    return int(num) - 1
-
-
-def log3(x: int):
-    return int(round(x**0.5/3**0.5))
-
-# def solver(l: int, r: int):
-#     count = 0
+def lg(x):
+    n = 0
+    while x!=0:
+        x = int(x/3)
+        n+=1
+    return n
     
-
-for i in range(50):
-    if log3(i) != math.floor(cmath.log(i, 3)):
-        print(i, log3(i), math.floor(cmath.log(i, 3)))
-
     
-
-# n = int(input())
-# for i in range(n):
-#     l = int(input())
-#     r = int(input())
-#     print(solver(l, r))
+def solver(l, r):
+    answer =0
+    k = lg(l)
+    answer += 2*k
+    l += 1
+    answer += (3**(k+1) -l)*(k+1)
+    l=3**(k+1)
+    #k+=1
+   
+    while 3**(k+1) < r:
+        answer +=(3**(k+1) -l)*(k+1)
+        k+=1
+        l=3**(k+1)
+    answer += (r - 3**k) * (k+1)
+    return answer
+        
+print(solver(1, 3))
+print(solver(2, 4))
+print(solver(1999999, 2000000))
+print(solver(19, 84))
