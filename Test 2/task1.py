@@ -4,7 +4,7 @@ import pandas as pd
 import pymorphy3
 morph = pymorphy3.MorphAnalyzer()
 
-df = pd.read_csv('word_forms.zip', compression='zip', header=0, sep='\t',)
+df = pd.read_csv(r'C:\Users\janep\Desktop\codes\57Sch\2024\i-love-crispy-laptops\Test2\word_forms.zip', compression='zip', sep='\t', encoding = 'ISO-8859-1')
 
 
 def get_info(word: str) -> pymorphy3.tagset:
@@ -25,6 +25,6 @@ def sen_maker(sentence: str) -> list:
 
 
 df['pos'] = df['1gram'].apply(lambda x: get_info(str(x))) # В датасете почему то были float...
-sentence = input()
+sentence = input("Введите")
 print(sentence)
 print(*sen_maker(sentence))
