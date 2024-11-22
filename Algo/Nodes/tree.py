@@ -180,11 +180,54 @@ class MySet[collection: Iterable[T]]:
                 return False
         return True
 
+    def is_empty(self):
+        if self.node is None:
+            return True
+        return False
+    
+    def __in__(self, val):
+       search_res = self.node.search(val)
+       if search_res:
+           return True
+       return False
+
+
+
+class MyDict[K, V]:
+
+    key: Node[T] | None
+    item: T
+
+    def __init__(self, collection: Iterable[tuple[K, V]]):
+        self.collection = collection 
+        self.node: Node[T: Comparable] | None = None
+        for val in collection:
+            if self.node is None:
+                self.node = Node(value)
+            else:
+                self.node.add(value)
         
-    def is_empty():
-        pass  
-    def __in__():
+
+    def __str__(self):
+        strver = "{"
+        for val in self.collection:
+            strver += f'{val[0]}: {val[1]}'
+        print(type(strver))
+        return  strver + '}'
+    
+    def str_node(self):
+        return self.node.__str__()
+    
+    def __repr__(self):
+        return "<dict tree node representation>"
+    
+    def __in__(self):
         pass
+    
+
+root = MyDict(collection=[('hi',2), ('world', [('how', 'are')]), ('you', [1,2,3]), (True, '!')])
+
+print(root.str_node())
 
 root = MySet(collection=[1,2,3,4])
 root.add(5)
