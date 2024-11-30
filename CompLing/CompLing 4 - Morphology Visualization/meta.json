@@ -1,0 +1,56 @@
+{
+    "algorithm": {
+        "command": null,
+        "id": 0,
+        "name": "Gensim Continuous Skipgram",
+        "tool": "Gensim",
+        "url": "https://github.com/RaRe-Technologies/gensim",
+        "version": "3.6"
+    },
+    "contents": [
+        {
+            "filename": "model.txt",
+            "format": "text"
+        },
+        {
+            "filename": "model.bin",
+            "format": "data"
+        },
+        {
+            "filename": "meta.json",
+            "format": "json"
+        }
+    ],
+    "corpus": [
+        {
+            "NER": true,
+            "case preserved": false,
+            "description": "Taiga corpus",
+            "id": 94,
+            "language": "rus",
+            "lemmatized": true,
+            "public": true,
+            "stop words removal": null,
+            "tagger": "UDPipe 1.2",
+            "tagset": "UPoS",
+            "tokens": 4867000000,
+            "url": "https://tatianashavrina.github.io/taiga_site/"
+        }
+    ],
+    "creators": [
+        {
+            "email": "andreku@ifi.uio.no",
+            "name": "Andrey Kutuzov"
+        }
+    ],
+    "dimensions": 300,
+    "documentation": [
+        "https://rusvectores.org"
+    ],
+    "external_id": "tayga-func_upos_skipgram_300_5_2019",
+    "handle": "http://vectors.nlpl.eu/repository/20/186.zip",
+    "id": 186,
+    "iterations": 10,
+    "vocabulary size": 249946,
+    "window": 5
+}
