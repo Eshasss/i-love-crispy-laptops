@@ -1,3 +1,5 @@
+#ничего не работает хочется плакац:( когда-нибудь додела. наверное.
+
 from __future__ import annotations
 from abc import ABCMeta, abstractmethod
 from enum import Enum, auto
@@ -112,11 +114,12 @@ class Node[T: Comparable]:
         """
         while self.left:
             self = self.left # так делать нехорошо но оно работает??
+        
         return self
 
     def find_parent_pos(self) -> str:
         """
-        Узнает позицию стороны родителя
+        Узнает свою позицию  со стороны родителя
         """
         if self.parent.right == self:
             return "right"
@@ -178,6 +181,14 @@ class Node[T: Comparable]:
         other_elems = other.to_list()
         for elem in other_elems:
             self.add(elem)
+        
+    def find_sibl(self) -> bool:
+        
+
+        if self.parent is not None and self.parent.right == self.value: #   Значит попопался сам на себя
+            return self.parent.left
+        elif self.parent is not None:
+            return self.parent.right
 
 
 class Set:
@@ -215,6 +226,7 @@ class Set:
         """
         Удаляет элемент во множестве
         """
+        print(self.node)
         self.node.delete(value)
 
     def __or__(self, other: Set) -> Set: # Пересечение n * log(m)
@@ -280,12 +292,6 @@ class Dict:
                 self.node = Node(value)
             else:
                 self.node.add(value)
-    # def __str__(self) -> str:
-    #     strver = "{"
-    #     for val in self.collection:
-    #         strver += f'{val[0]}: {val[1]}'
-    #     print(type(strver))
-    #     return  strver + '}'
 
     def str_node(self):
         return self.node.__str__()
@@ -299,7 +305,8 @@ class Dict:
         Поиск элемента для вершин кортежей. 
         """
         if self.node.predicate(value, node.value[0]) == Compare.Equal:
-            return True
+            print(node.value[0])
+            return node.value
         if self.node.predicate(value, node.value[0]) == Compare.Less:
             if node.left is None:
                 return False
@@ -313,39 +320,10 @@ class Dict:
         if self.search_tuple(self.node, value):
             return True
         return False
-
-
-# node = Node(8)
-# node.add(4)
-# node.add(7)
-# node.add(8)
-# node.add(23)
-# node.add(12)
-# print(node)
-# node2 = Node(12)
-# node2.add(6)
-# node2.add(10)
-# node2.add(38)
-# node2.add(3)
-# node2.add(2)
-
-# node.merge(node2)
-# print(node)
-
-# print(node.correct())
-# node.search(10)
-
-# set1 = Set([('hello', 1), ('world', [1,2,3]), ('how', 123.5), ('are', 'you')])
-# set2 = Set([('hello', 1), ('world', [1,2,3]), ('abracadabra', 71)])
-# print(set1&set2)
-# print(set1|set2)
-# print(set2.is_subset(set1))
-
-# dict1 = Dict([('hello', 1), ('world', [1,2,3]), ('how', 123.5), ('are', 'you')])
-# print(dict1)
-
-
-# set1 = Set([1, 2, 3])
-# set2 = Set([3, 4, 5])
-# print(set1.is_subset(set2))
-# print(set2.is_subset(set1))
+    
+    def del_by_indx(self, indx) -> None:
+        del_elem = self.node.to_list()[indx]
+        self.node.delete(del_elem)
+    
+    def __getitem__(self, key):
+        return self.search_tuple(self.node, key)
