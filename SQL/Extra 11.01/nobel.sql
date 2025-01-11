@@ -23,7 +23,6 @@ WHERE subject = 'literature' AND (yr BETWEEN 1980 AND 1989);
 SELECT * FROM nobel
 WHERE winner in ('Theodore Roosevelt', 'Thomas Woodrow Wilson', 'Jimmy Carter', 'Barack Obama');
 
-
 SELECT winner
 FROM nobel
 WHERE winner LIKE 'John%';
