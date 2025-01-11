@@ -1,11 +1,15 @@
 -- SQLite
 
--- -- 2.1
+SELECT COUNT(*)
+FROM sqlite_master
+WHERE type = 'table'; 
+
+-- 2.1
 SELECT name, population
 FROM facts
 LIMIT 10;
 
--- -- 2.2
+-- 2.2
 SELECT capital, population
 FROM cities
 LIMIT 10;
@@ -19,7 +23,7 @@ LIMIT 20;
 
 -- 4. Напишите запрос, получающий последние 10 строк любых двух
 -- колонок из таблицы facts
-SELECT *
+SELECT area_water, area_land
 FROM facts
 ORDER BY id DESC
 LIMIT 10;
@@ -28,7 +32,8 @@ LIMIT 10;
 -- содержащую информацию о доле населения в городе
 -- относительно населения всех городов представленных в таблице
 
-SELECT name, cast(population as float) / (SELECT SUM(population) FROM cities) AS "Population_%"
+SELECT name, 
+    cast(population as float) / (SELECT SUM(population) FROM cities) AS "Population_%"
 FROM cities;
 
 -- 6. Напишите запрос, получающий все строки, содержащие NULL
@@ -39,7 +44,7 @@ WHERE death_rate ISNULL OR area ISNULL OR area_land ISNULL OR area_water ISNULL 
 
 -- 7. Выведите топ-10 стран по населению (facts_id - идентификатор
 -- страны)
-SELECT *
+SELECT name, population
 FROM facts
 ORDER BY population DESC
 LIMIT 10;
