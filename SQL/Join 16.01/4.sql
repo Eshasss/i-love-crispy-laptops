@@ -1,7 +1,8 @@
 -- Напишите запрос, получающий информацию о названии альбома,
 -- имени испонителя и общем количестве проданных копий альбома
 
-SELECT 
-FROM track AS t1
-FULL JOIN invoice_line AS t2
-ON t1.key = t2.key;
+SELECT a.title, ar.name
+FROM album as a
+INNER JOIN artist as ar
+ON a.artist_id = ar.artist_id
+INNER JOIN 
