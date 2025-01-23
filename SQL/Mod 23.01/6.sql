@@ -1,0 +1,2 @@
+ALTER TABLE products 
+ALTER COLUMN price FLOAT [NULL | NOT NULL];
