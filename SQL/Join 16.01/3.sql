@@ -4,10 +4,10 @@
 
 SELECT i1.invoice_id, i2.track_id, t.name AS track_name, m.name AS media_type_name, i2.quantity, t.unit_price
 FROM invoice AS i1
-FULL JOIN invoice_line AS i2
+INNER JOIN invoice_line AS i2
 ON i1.invoice_id = i2.invoice_id
-FULL JOIN track AS t
+INNER JOIN track AS t
 ON i2.track_id = t.track_id
-FULL JOIN media_type AS m
+INNER JOIN media_type AS m
 ON t.media_type_id = m.media_type_id
 WHERE i2.invoice_id = 1;
