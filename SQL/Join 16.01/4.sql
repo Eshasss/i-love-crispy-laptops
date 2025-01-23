@@ -1,9 +1,9 @@
 --Напишите запрос, получающий информацию о названии альбома,
 -- имени испонителя и общем количестве проданных копий альбома
-SELECT a.title AS album_name, art.name AS art_name, SUM(i.quantity) AS sold
+SELECT a.title AS album_name, aa.name AS art_name, SUM(i.quantity) AS sold
 FROM album AS a
-INNER JOIN artist AS art
-    ON art.artist_id = a.artist_id
+INNER JOIN artist AS aa
+    ON aa.artist_id = a.artist_id
 INNER JOIN track AS t
     ON a.album_id = t.album_id
 INNER JOIN invoice_line AS i

@@ -1,7 +1,7 @@
 # Write your MySQL query statement below
-SELECT employee_id, department_id
-FROM Employee 
-GROUP BY employee_id
-CASE THEN
-
-WHERE primary_flag = 'Y'
+SELECT e.employee_id,
+       IFNULL(ee.department_id, e.department_id) AS department_id
+FROM Employee AS e
+LEFT JOIN Employee AS ee 
+    ON e.employee_id = ee.employee_id AND ee.primary_flag = 'Y'
+GROUP BY e.employee_id;
