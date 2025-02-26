@@ -1,9 +1,7 @@
 ### My laptop is a crisp of cheetos
 I dont know how to use git hehhh
 
-#### New crispy laptop wishlist:
-~~zenbook 14 air u7  
-surface laptop 7~~
-
-I got lenovo slim i7 hehee
-
+### smol log
+| date | log |
+| --- | --- |
+| 26/02/2025 | Finally cloned to new pc! |
