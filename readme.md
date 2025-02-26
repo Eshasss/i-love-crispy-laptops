@@ -1,3 +1,5 @@
+###
+
 ### My laptop is a crisp of cheetos
 I dont know how to use git hehhh
 
@@ -5,3 +7,4 @@ I dont know how to use git hehhh
 | date | log |
 | --- | --- |
 | 26/02/2025 | Finally cloned to new pc! |
+
