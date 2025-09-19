@@ -26,8 +26,8 @@ def knn_cv_score(X, y,n, n_n, metric, weight, scorer, norm, model=KNeighborsRegr
         y_test = y_folds[i][0]
         y_train = y_folds[i][1]
         if norm is not None:
-                X_train_scaled = norm.fit_transform(X_train).toarray()
-                X_test_scaled = norm.transform(X_test).toarray()
+                X_train_scaled = norm.fit_transform(X_train)
+                X_test_scaled = norm.transform(X_test)
         else:
                 X_train_scaled = X_train
                 X_test_scaled = X_test
