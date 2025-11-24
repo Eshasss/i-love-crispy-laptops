@@ -1,8 +1,11 @@
-# bin(n)
+# bin(n) 2-ричная
+# oct(n) 8-ричная
+# hex(n) 16-ричная
 # format(n, "b")
 
 # int(bin_n, X) X - система
 # zfill(n, 8)
+
 def f(n):
     ostatok = n%4
     bin_n = str(format(n, 'b')) + str(format(ostatok, 'b'))
